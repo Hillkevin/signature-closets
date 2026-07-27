@@ -1,0 +1,41 @@
+{
+  "basePrices": {
+    "closet": {
+      "small": 1500,
+      "medium": 3500,
+      "large": 6500
+    },
+    "garage": {
+      "small": 2000,
+      "medium": 4500,
+      "large": 8000
+    },
+    "storage": {
+      "small": 1200,
+      "medium": 2800,
+      "large": 5000
+    }
+  },
+  "materialMultipliers": {
+    "white-melamine": 1,
+    "colored-melamine": 1.2,
+    "textured-melamine": 1.3
+  },
+  "accessories": [
+    {
+      "key": "lighting",
+      "label": "Built-in LED lighting",
+      "cost": 1500
+    },
+    {
+      "key": "hamper",
+      "label": "Pull-out hamper",
+      "cost": 120
+    },
+    {
+      "key": "island",
+      "label": "Center island",
+      "cost": 850
+    }
+  ]
+}
