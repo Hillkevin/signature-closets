@@ -1,6 +1,7 @@
 export const SITE = {
-  phoneDisplay: "(509) 940-7726",
-  phoneTel: "tel:+15099407726",
+  phoneDisplay: "(509) 380-4129",
+  phoneTel: "tel:+15093804129",
+  phoneJsonLd: "+1-509-380-4129",
   address: "1614 Dale Ave, Benton City, WA 99320",
   addressParts: {
     streetAddress: "1614 Dale Ave",

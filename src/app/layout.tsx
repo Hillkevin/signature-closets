@@ -27,7 +27,7 @@ const localBusinessJsonLd = {
   "@id": "https://www.signatureclosets.com/#business",
   name: "Signature Closets",
   url: "https://www.signatureclosets.com",
-  telephone: "+1-509-940-7726",
+  telephone: SITE.phoneJsonLd,
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
