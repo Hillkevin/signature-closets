@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { kv } from "@vercel/kv";
 
 export type ProjectTypeKey = "closet" | "garage" | "storage";
 export type SizeKey = "small" | "medium" | "large";
@@ -22,13 +23,35 @@ const SIZES: SizeKey[] = ["small", "medium", "large"];
 const MATERIAL_KEYS: MaterialKey[] = ["white-melamine", "colored-melamine", "textured-melamine"];
 
 const PRICING_FILE = path.join(process.cwd(), "data", "pricing.json");
+const PRICING_KV_KEY = "signature-closets:pricing";
 
-export async function getPricing(): Promise<PricingData> {
+// Vercel's production filesystem is read-only, so persisted edits must go to KV there.
+// Locally (no KV credentials configured), we fall back to reading/writing the JSON file
+// on disk so `npm run dev` keeps working without needing a database connection.
+const hasKv = Boolean(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
+
+async function readSeedPricing(): Promise<PricingData> {
   const raw = await fs.readFile(PRICING_FILE, "utf-8");
   return JSON.parse(raw) as PricingData;
 }
 
+export async function getPricing(): Promise<PricingData> {
+  if (hasKv) {
+    const stored = await kv.get<PricingData>(PRICING_KV_KEY);
+    if (stored) return stored;
+    // First run: seed KV from the bundled JSON file so the admin page has starting values.
+    const seed = await readSeedPricing();
+    await kv.set(PRICING_KV_KEY, seed);
+    return seed;
+  }
+  return readSeedPricing();
+}
+
 export async function savePricing(data: PricingData): Promise<void> {
+  if (hasKv) {
+    await kv.set(PRICING_KV_KEY, data);
+    return;
+  }
   await fs.writeFile(PRICING_FILE, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
 }
 
