@@ -1,18 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Work_Sans } from "next/font/google";
 import { ChevronRight } from "lucide-react";
 
 const workSans = Work_Sans({ subsets: ["latin"], weight: ["600"] });
 
 export default function StickyBookButton() {
-  const pathname = usePathname();
-  if (pathname === "/coming-soon") {
-    return null;
-  }
-
   return (
     <Link
       href="/instant-quote"

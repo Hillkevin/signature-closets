@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { jsonLdScriptProps } from "@/lib/json-ld";
@@ -43,11 +44,16 @@ const localBusinessJsonLd = {
   sameAs: [SITE.instagramUrl],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Set by middleware.ts when it's rewriting a gated request to the Coming
+  // Soon placeholder — hide site chrome like the sticky button in that case.
+  const headersList = await headers();
+  const showingComingSoon = headersList.get("x-showing-coming-soon") === "1";
+
   return (
     <html
       lang="en"
@@ -59,7 +65,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={jsonLdScriptProps(localBusinessJsonLd)}
         />
         {children}
-        <StickyBookButton />
+        {!showingComingSoon && <StickyBookButton />}
       </body>
     </html>
   );

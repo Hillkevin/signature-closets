@@ -53,10 +53,14 @@ export function middleware(request: NextRequest) {
   }
 
   // Otherwise, show the Coming Soon placeholder instead of the real page.
+  // A header (not the URL, since this is a rewrite) tells the layout to hide
+  // site chrome like the sticky "Book a Consultation" button.
   const comingSoonUrl = request.nextUrl.clone();
   comingSoonUrl.pathname = COMING_SOON_PATH;
   comingSoonUrl.search = "";
-  return NextResponse.rewrite(comingSoonUrl);
+  const headers = new Headers(request.headers);
+  headers.set("x-showing-coming-soon", "1");
+  return NextResponse.rewrite(comingSoonUrl, { request: { headers } });
 }
 
 export const config = {
