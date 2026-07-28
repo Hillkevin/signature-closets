@@ -29,25 +29,6 @@ export const metadata: Metadata = {
 
 const workSans = Work_Sans({ subsets: ["latin"], weight: ["600"] });
 
-const PROCESS_STEPS = [
-  {
-    title: "Get your instant quote",
-    description: "Enter your dimensions and finish on our online tool for a real price range in under a minute.",
-  },
-  {
-    title: "Free in-home consultation & measurement",
-    description: "A designer visits your space, takes exact measurements, and finalizes your price.",
-  },
-  {
-    title: "3D design & material selection",
-    description: "Walk through a 3D rendering of your new space and choose finishes, hardware, and add-ons.",
-  },
-  {
-    title: "Custom build & professional installation",
-    description: "Your closet is built to spec and installed by our in-house team — no subcontractors.",
-  },
-];
-
 const PROJECTS = [
   {
     src: "/images/gallery/walk-in-closet-light-wood-glass-front-cabinets.jpg",
@@ -278,22 +259,13 @@ export default function Home() {
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
           <AccentHeading className="text-3xl">From Idea to Installed — Our Process</AccentHeading>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS_STEPS.map((step, i) => (
-              <Reveal key={step.title} delay={i * 80}>
-                <div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-red font-serif text-lg font-semibold text-white ring-2 ring-brass ring-offset-2 ring-offset-white">
-                    {i + 1}
-                  </div>
-                  <h3 className="mt-4 font-medium text-charcoal">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{step.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <p className="mt-4 max-w-2xl text-charcoal/70">
+            From your instant quote to the final install, here&apos;s exactly what to expect every
+            step of the way.
+          </p>
           <Link
             href="/process"
-            className="mt-8 inline-block text-sm font-medium text-brand-red hover:text-brand-red-dark"
+            className="mt-6 inline-block text-sm font-medium text-brand-red hover:text-brand-red-dark"
           >
             See our full process →
           </Link>
