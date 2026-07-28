@@ -110,8 +110,8 @@ const VALUE_PROPS = [
   },
   {
     icon: ShieldCheck,
-    title: "Lifetime warranty",
-    description: "Our builds are backed by a lifetime warranty on materials and workmanship.",
+    title: "1-year warranty",
+    description: "Our builds are backed by a 1-year warranty on materials and workmanship.",
   },
   {
     icon: Users,
