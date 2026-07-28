@@ -139,7 +139,7 @@ const FAQS = [
   {
     question: "Do you offer free consultations?",
     answer:
-      "Yes. Every project starts with a free in-home consultation and measurement — no obligation to book anything after.",
+      "Yes, after an in-person visit to our showroom — no obligation to book anything after.",
   },
   {
     question: "What areas do you serve?",
