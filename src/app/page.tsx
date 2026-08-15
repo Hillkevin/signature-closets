@@ -179,7 +179,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScriptProps(breadcrumbListJsonLd)} />
 
       {/* 2. Hero — full screen, image fills the page, nav floats on top */}
-      <section className="relative flex min-h-screen flex-col overflow-hidden">
+      <section className="relative flex h-[640px] flex-col overflow-hidden sm:min-h-screen sm:h-auto">
         <Image
           src="/images/gallery/walk-in-closet-light-wood-luxury-wide-view.jpg"
           alt="Custom walk-in closet with light wood built-in cabinetry, glass-front display cabinets, and integrated LED lighting"
