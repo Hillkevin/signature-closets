@@ -185,6 +185,7 @@ export default function Home() {
           alt="Custom walk-in closet with light wood built-in cabinetry, glass-front display cabinets, and integrated LED lighting"
           fill
           priority
+          quality={90}
           sizes="100vw"
           className="object-cover brightness-[1.05] contrast-[1.05] saturate-[1.1]"
         />
