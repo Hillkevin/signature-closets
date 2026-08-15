@@ -30,12 +30,37 @@
     {
       "key": "hamper",
       "label": "Pull-out hamper",
-      "cost": 120
+      "cost": 250
     },
     {
       "key": "island",
       "label": "Center island",
       "cost": 850
+    },
+    {
+      "key": "new-accessory",
+      "label": "Jewelry Drawer",
+      "cost": 150
+    },
+    {
+      "key": "new-accessory-2",
+      "label": "Valet Rod",
+      "cost": 100
+    },
+    {
+      "key": "new-accessory-3",
+      "label": "Pull Out Pants Rack",
+      "cost": 250
+    },
+    {
+      "key": "new-accessory-4",
+      "label": "Pull Down Rod",
+      "cost": 450
+    },
+    {
+      "key": "new-accessory-5",
+      "label": "Shaker Doors and Drawers",
+      "cost": 1000
     }
   ]
 }

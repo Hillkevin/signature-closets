@@ -1,9 +1,8 @@
 import { Resend } from "resend";
 import { SITE } from "@/lib/site";
 
-// Resend's shared sending address — swap for a verified domain address (e.g. leads@signatureclosets.com)
-// once the business domain is verified with Resend.
-const FROM_ADDRESS = "Signature Closets <onboarding@resend.dev>";
+// Verified sending domain — signatureclosetswa.com is confirmed with Resend.
+const FROM_ADDRESS = "Signature Closets <quotes@signatureclosetswa.com>";
 
 let resendClient: Resend | null = null;
 
