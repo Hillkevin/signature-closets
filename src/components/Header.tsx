@@ -13,7 +13,13 @@ const workSans = Work_Sans({ subsets: ["latin"], weight: ["600"] });
 
 const SERVICE_LINKS = SERVICES.map((service) => ({ label: service.title, href: `/services/${service.slug}` }));
 
-export default function Header({ showInstantQuoteCta = false }: { showInstantQuoteCta?: boolean }) {
+export default function Header({
+  showInstantQuoteCta = false,
+  transparent = false,
+}: {
+  showInstantQuoteCta?: boolean;
+  transparent?: boolean;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -45,11 +51,16 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
     setMobileServicesOpen(false);
   }
 
+  const baseText = transparent ? "text-white" : "text-charcoal";
+  const baseTextSoft = transparent ? "text-white/90" : "text-charcoal";
+
   return (
-    <header className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:py-5 xl:py-6 lg:px-8">
+    <header
+      className={`relative z-30 mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:py-5 xl:py-6 lg:px-8`}
+    >
       <Link href="/" className="inline-block shrink-0" onClick={closeMobileMenu}>
         <Image
-          src="/logo.png"
+          src={transparent ? "/logo-white.png" : "/logo.png"}
           alt="Signature Closets"
           width={280}
           height={117}
@@ -62,7 +73,7 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
         <Link
           href="/"
           className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-brand-red ${
-            pathname === "/" ? "text-brand-red" : "text-charcoal"
+            pathname === "/" ? (transparent ? "text-white underline underline-offset-4 decoration-2 decoration-brand-red" : "text-brand-red") : baseTextSoft
           }`}
         >
           Home
@@ -75,7 +86,7 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
             aria-haspopup="true"
             aria-expanded={desktopServicesOpen}
             className={`flex items-center gap-1 whitespace-nowrap text-sm font-medium transition-colors hover:text-brand-red ${
-              servicesActive ? "text-brand-red" : "text-charcoal"
+              servicesActive ? "text-brand-red" : baseTextSoft
             }`}
           >
             Services
@@ -119,7 +130,7 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
               key={link.href}
               href={link.href}
               className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-brand-red ${
-                active ? "text-brand-red" : "text-charcoal"
+                active ? "text-brand-red" : baseTextSoft
               }`}
             >
               {link.label}
@@ -131,7 +142,7 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
       <div className="flex shrink-0 items-center gap-3 sm:gap-4">
         <a
           href={SITE.phoneTel}
-          className="hidden items-center gap-2 font-medium text-charcoal transition-colors hover:text-brand-red sm:flex"
+          className={`hidden items-center gap-2 font-medium transition-colors hover:text-brand-red sm:flex ${baseText}`}
         >
           <Phone size={18} className="text-brand-red" />
           {SITE.phoneDisplay}
@@ -149,7 +160,7 @@ export default function Header({ showInstantQuoteCta = false }: { showInstantQuo
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label="Toggle navigation menu"
-          className="flex items-center justify-center rounded-md p-2 text-charcoal xl:hidden"
+          className={`flex items-center justify-center rounded-md p-2 xl:hidden ${baseText}`}
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>

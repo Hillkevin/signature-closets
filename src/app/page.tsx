@@ -12,6 +12,8 @@ import { getLocation } from "@/lib/locations";
 import { SERVICES } from "@/lib/services";
 import { SITE } from "@/lib/site";
 import {
+  ArrowRight,
+  ChevronDown,
   MapPin,
   Palette,
   Phone,
@@ -33,72 +35,72 @@ const PROJECTS = [
   {
     src: "/images/gallery/walk-in-closet-light-wood-glass-front-cabinets.jpg",
     alt: "Custom walk-in closet with light wood shelving, glass-front cabinets, and integrated LED lighting",
-    caption: "Walk-in closet with LED lighting — Benton City, WA home",
+    caption: "Walk-in closet with LED lighting",
   },
   {
     src: "/images/gallery/walk-in-closet-light-wood-shoe-shelving-ottoman.jpg",
     alt: "Custom walk-in closet with light wood shoe shelving, a drawer tower, and a floating display shelf",
-    caption: "Walk-in closet with shoe shelving — Benton City, WA home",
+    caption: "Walk-in closet with shoe shelving",
   },
   {
     src: "/images/gallery/walk-in-closet-corner-shelving-bench-window.jpg",
     alt: "Custom corner walk-in closet with light wood shelving, a bench, and a window",
-    caption: "Corner walk-in closet — Benton City, WA home",
+    caption: "Corner walk-in closet",
   },
   {
     src: "/images/gallery/walk-in-closet-light-wood-opens-to-laundry.jpg",
     alt: "Custom walk-in closet with light wood cabinetry that opens into a laundry room",
-    caption: "Walk-in closet with laundry access — Benton City, WA home",
+    caption: "Walk-in closet with laundry access",
   },
   {
     src: "/images/gallery/walk-in-closet-wood-open-shelving-corridor.jpg",
     alt: "Long walk-in closet corridor with repeated wood open shelving bays",
-    caption: "Walk-in closet corridor — Benton City, WA home",
+    caption: "Walk-in closet corridor",
   },
   {
     src: "/images/gallery/walk-in-closet-dark-wood-chandelier-wide-view.jpg",
-    alt: "Walk-in closet with dark wood cabinetry and a beaded chandelier — Benton City, WA home",
-    caption: "Dark wood walk-in closet with chandelier — Benton City, WA home",
+    alt: "Walk-in closet with dark wood cabinetry and a beaded chandelier",
+    caption: "Dark wood walk-in closet with chandelier",
   },
   {
     src: "/images/gallery/walk-in-closet-white-woven-baskets-wide-view.jpg",
-    alt: "Walk-in closet with white cabinetry and woven storage baskets — Benton City, WA home",
-    caption: "White walk-in closet with woven baskets — Benton City, WA home",
+    alt: "Walk-in closet with white cabinetry and woven storage baskets",
+    caption: "White walk-in closet with woven baskets",
   },
   {
     src: "/images/gallery/walk-in-closet-white-rose-gold-designer-display.jpg",
-    alt: "Walk-in closet with white cabinetry, rose gold hardware, and designer bag display — Benton City, WA home",
-    caption: "White walk-in closet with rose gold hardware — Benton City, WA home",
+    alt: "Walk-in closet with white cabinetry, rose gold hardware, and designer bag display",
+    caption: "White walk-in closet with rose gold hardware",
   },
   {
     src: "/images/gallery/walk-in-closet-light-wood-designer-storage-wide.jpg",
-    alt: "Walk-in closet with light wood cabinetry and brass hardware — Benton City, WA home",
-    caption: "Light wood walk-in closet with brass hardware — Benton City, WA home",
+    alt: "Walk-in closet with light wood cabinetry and brass hardware",
+    caption: "Light wood walk-in closet with brass hardware",
   },
   {
     src: "/images/gallery/walk-in-closet-light-birch-benton-city-corner-shelving.jpg",
-    alt: "Walk-in closet with light birch corner shelving and hanging rods — Benton City, WA home",
-    caption: "Light birch walk-in closet with corner shelving — Benton City, WA home",
+    alt: "Walk-in closet with light birch corner shelving and hanging rods",
+    caption: "Light birch walk-in closet with corner shelving",
   },
   {
     src: "/images/gallery/walk-in-closet-dark-wood-shoe-boot-display.jpg",
-    alt: "Walk-in closet with dark wood glass-front cabinetry displaying a shoe and boot collection — Benton City, WA home",
-    caption: "Walk-in closet with shoe and boot display — Benton City, WA home",
+    alt: "Walk-in closet with dark wood glass-front cabinetry displaying a shoe and boot collection",
+    caption: "Walk-in closet with shoe and boot display",
   },
   {
     src: "/images/gallery/walk-in-closet-white-sloped-ceiling-shelving.jpg",
-    alt: "Walk-in closet with white shelving built into a sloped ceiling — Benton City, WA home",
-    caption: "Walk-in closet with sloped ceiling shelving — Benton City, WA home",
+    alt: "Walk-in closet with white shelving built into a sloped ceiling",
+    caption: "Walk-in closet with sloped ceiling shelving",
   },
   {
     src: "/images/gallery/walk-in-closet-light-birch-styled-hanging-section.jpg",
-    alt: "Walk-in closet with light birch cabinetry and hanging clothes storage — Benton City, WA home",
-    caption: "Light birch walk-in closet — Benton City, WA home",
+    alt: "Walk-in closet with light birch cabinetry and hanging clothes storage",
+    caption: "Light birch walk-in closet",
   },
   {
     src: "/images/gallery/walk-in-closet-hallway-mirror-to-bathroom.jpg",
-    alt: "Walk-in closet hallway with a full-length mirror opening to the bathroom — Benton City, WA home",
-    caption: "Walk-in closet hallway to bathroom — Benton City, WA home",
+    alt: "Walk-in closet hallway with a full-length mirror opening to the bathroom",
+    caption: "Walk-in closet hallway to bathroom",
   },
 ];
 
@@ -176,40 +178,73 @@ export default function Home() {
     <div className="flex-1 bg-cream text-charcoal">
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScriptProps(breadcrumbListJsonLd)} />
 
-      <Header showInstantQuoteCta />
-
-      {/* 2. Hero */}
-      <section className="relative overflow-hidden">
+      {/* 2. Hero — full screen, image fills the page, nav floats on top */}
+      <section className="relative flex min-h-screen flex-col overflow-hidden">
         <Image
           src="/images/gallery/walk-in-closet-light-wood-luxury-wide-view.jpg"
           alt="Custom walk-in closet with light wood built-in cabinetry, glass-front display cabinets, and integrated LED lighting"
           fill
           priority
           sizes="100vw"
-          className="object-cover brightness-[1.12] contrast-[1.05] saturate-[1.1]"
+          className="object-cover brightness-[1.05] contrast-[1.05] saturate-[1.1]"
         />
-        <div className="absolute inset-0 bg-charcoal/35" />
-        <div className="relative mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-36">
-          <div className="max-w-xl">
-            <h1
-              className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl"
+        {/* Light overall tint just enough to keep the hero text readable over the photo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/25 via-transparent to-charcoal/50" />
+        {/* Solid dark backdrop behind the nav bar only, so the logo/menu are always readable regardless of the photo underneath */}
+        <div className="absolute inset-x-0 top-0 h-48 bg-charcoal/80" />
+        <div className="absolute inset-x-0 top-48 h-16 bg-gradient-to-b from-charcoal/80 to-transparent" />
+
+        {/* Floating transparent nav */}
+        <div className="relative z-10">
+          <Header showInstantQuoteCta transparent />
+        </div>
+
+        {/* Hero content, vertically centered in remaining space */}
+        <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p
+              className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80"
               style={{ textShadow: "0 2px 8px rgba(0,0,0,0.85)" }}
             >
-              Custom Closets Designed for the Way You Live in Benton City, WA
+              Custom Closets · Benton City, WA
+            </p>
+            <h1
+              className="mt-4 font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
+              style={{ textShadow: "0 2px 8px rgba(0,0,0,0.85)" }}
+            >
+              Custom Closets Designed for the Way You Live
             </h1>
             <p
-              className="mt-5 max-w-lg text-lg leading-relaxed text-white"
+              className="mt-6 max-w-lg text-lg leading-relaxed text-white"
               style={{ textShadow: "0 2px 8px rgba(0,0,0,0.85)" }}
             >
               From walk-in closets to pantry systems, Signature Closets builds storage that fits your space and your
               style.
             </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex h-12 items-center justify-center rounded-full bg-brand-red px-7 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:bg-brand-red-dark hover:shadow-xl hover:shadow-brand-red/30"
-            >
-              Get a Free Design Consultation
-            </Link>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-red px-7 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:bg-brand-red-dark hover:shadow-xl hover:shadow-brand-red/30"
+              >
+                Book a Design Consultation
+                <ArrowRight size={18} />
+              </Link>
+              <a
+                href="#recent-projects"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/40 px-7 font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Explore Our Work
+                <ChevronDown size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom location strip */}
+        <div className="relative z-10 border-t border-white/15 px-6 py-5 lg:px-8">
+          <div className="mx-auto flex max-w-6xl items-center gap-3 text-sm font-medium uppercase tracking-wide text-white/80">
+            <span className="h-px w-8 bg-brand-red" />
+            Benton City, Washington · Serving Eastern Washington &amp; the Pacific Northwest
           </div>
         </div>
       </section>
@@ -296,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* 7. Featured Projects / Gallery */}
-      <section className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+      <section id="recent-projects" className="mx-auto max-w-6xl px-6 py-20 lg:px-8">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <h2 className="font-serif text-3xl font-semibold text-charcoal">Recent Projects in Benton City, WA</h2>
           <Link href="/gallery" className="text-sm font-medium text-brand-red hover:text-brand-red-dark">
