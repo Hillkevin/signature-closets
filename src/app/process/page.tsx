@@ -22,6 +22,10 @@ const STEPS = [
     number: 1,
     title: "Initial Consultation",
     photoLabel: "Photo: designer meeting with a client, either in-home or on a video call",
+    image: {
+      src: "/images/process/initial-consultation.jpg",
+      alt: "Signature Closets designer reviewing material samples and a project layout with clients at the showroom counter",
+    },
     intro:
       "We start by getting to know your space and how you actually live in it — whether that's in person at your home or over a video call, whichever works best for your schedule.",
     bullets: [
