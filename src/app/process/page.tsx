@@ -55,6 +55,10 @@ const STEPS = [
     number: 3,
     title: "Proposal & Approval",
     photoLabel: "Photo: a 3D rendering/visualization on a screen or printed proposal",
+    image: {
+      src: "/images/process/proposal-approval.jpg",
+      alt: "Printed 3D closet design rendering and proposal sheet showing a master closet layout",
+    },
     intro:
       "You'll receive a complete proposal, not just a quote — so you can see exactly what you're getting before committing.",
     bullets: [
