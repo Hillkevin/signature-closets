@@ -73,6 +73,10 @@ const STEPS = [
     number: 4,
     title: "Production & Manufacturing",
     photoLabel: "Photo: workshop/production floor, materials being cut or assembled",
+    image: {
+      src: "/images/process/production-manufacturing.jpg",
+      alt: "CNC machine cutting custom closet panels in the Signature Closets production shop",
+    },
     intro: "With your design approved, your closet moves into production.",
     bullets: [
       "Your specific panels, shelving, and hardware are cut and prepared to your exact measurements",
@@ -84,6 +88,10 @@ const STEPS = [
     number: 5,
     title: "Installation",
     photoLabel: "Photo: installer(s) actively installing cabinetry/shelving in a client's home",
+    image: {
+      src: "/images/process/installation.jpg",
+      alt: "Custom closet cabinetry being installed in a client's home, mid-installation",
+    },
     intro: "Once your materials are ready, we schedule your installation.",
     bullets: [
       "We'll contact you to schedule a specific installation date that works for you",
@@ -97,6 +105,10 @@ const STEPS = [
     number: 6,
     title: "Final Quality Inspection",
     photoLabel: "Photo: finished, styled closet — the \"after\" shot",
+    image: {
+      src: "/images/process/final-quality-inspection.jpg",
+      alt: "Finished, fully styled walk-in closet with dark wood cabinetry, LED lighting, and organized accessories",
+    },
     intro: "Every project ends with a final check to make sure everything is right.",
     bullets: [
       "A thorough walkthrough of the completed installation — drawers, doors, hardware, lighting, and fit are all checked",
