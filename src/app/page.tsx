@@ -196,7 +196,7 @@ export default function Home() {
         <div className="absolute inset-x-0 top-48 h-16 bg-gradient-to-b from-charcoal/80 to-transparent" />
 
         {/* Floating transparent nav */}
-        <div className="relative z-10">
+        <div className="relative z-30">
           <Header showInstantQuoteCta transparent />
         </div>
 
